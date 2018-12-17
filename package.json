@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/Reaper622/koa-trailer#readme",
   "dependencies": {
-    "koa": "^2.6.2"
+    "ejs": "^2.6.1",
+    "koa": "^2.6.2",
+    "pug": "^2.0.3"
   }
 }
