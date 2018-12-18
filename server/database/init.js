@@ -35,6 +35,7 @@ exports.connect = () => {
     })
   
     mongoose.connection.once('open', () => {
+      //测试数据库
       // const Dog = mongoose.model('Dog',{ name: String })
       // const doga = new Dog({ name: '阿尔法'})
 
