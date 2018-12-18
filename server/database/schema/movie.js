@@ -34,4 +34,15 @@ const movieSchema = new Schema({
   }
 })
 
+//数据更新时间处理中间件
+movieSchema.pre('save', next => {
+  //若为新数据
+  if (this.isNew) { 
+    this.meta.createdAt = this.meta.updatedAt = Date.now()
+  } else {
+    this.meta.updatedAt = Date.now()
+  }
+  next()
+})
+
 mongoose.model('Movie', movieSchema)
