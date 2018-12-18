@@ -20,6 +20,14 @@ A trailer Website built with Koa:rocket:
 
 
 
+### 问题解决
+
+部分问题以及解决方法会写在issue里，踩坑不少，有所收获即为欣慰。
+
+
+
+
+
 
 
 
