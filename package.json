@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Reaper622/koa-trailer#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^2.6.1",
     "koa": "^2.6.2",
     "koa-views": "^6.1.4",

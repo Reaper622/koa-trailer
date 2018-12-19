@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 const Mixed = Schema.Types.Mixed
 
 const movieSchema = new Schema({
-  doubanId: String, //豆瓣ID
+  doubanId:{
+    unique: true,
+    type: String
+  }, //豆瓣ID
   rate: Number, //评分
   title: String, //标题
   summary: String, //简介
