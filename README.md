@@ -12,6 +12,7 @@ A trailer Website built with Koa:rocket:
 - 爬虫引擎: puppeteer 
 - 数据存储: MongoDB
 - 数据存储对象模型工具: mongoose
+- 数据加密: bcrypt
 - 图床&云存储: 七牛云存储
 
 ### 数据来源:
@@ -22,7 +23,7 @@ A trailer Website built with Koa:rocket:
 
 ### 问题解决
 
-部分问题以及解决方法会写在issue里，踩坑不少，有所收获即为欣慰。
+部分问题以及解决方法会写在issue里，踩坑不少，有所收获即为欣慰。 
 
 
 
