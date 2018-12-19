@@ -44,12 +44,12 @@ const userSchema = new Schema({
   }
 })
 
-userSchema.virtual('isLocked').get( () => {
+userSchema.virtual('isLocked').get( function () {
   return !!(this.lockUntil && this.lockUntil > Date.now())
 })
 
 //数据更新时间处理中间件
-userSchema.pre('save', next => {
+userSchema.pre('save', function (next) {
   //若为新数据
   if (this.isNew) { 
     this.meta.createdAt = this.meta.updatedAt = Date.now()
@@ -59,7 +59,7 @@ userSchema.pre('save', next => {
   next()
 })
 //密码加盐
-userSchema.pre('save', next => {
+userSchema.pre('save', function (next) {
   if (!userSchema.isModified('password')) return next()
 
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {

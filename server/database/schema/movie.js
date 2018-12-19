@@ -1,13 +1,17 @@
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
-const Mixed = Schema.Types.Mixed
+const { ObjectId, Mixed } = Schema.Types
 
 const movieSchema = new Schema({
   doubanId:{
     unique: true,
     type: String
   }, //豆瓣ID
+  category: [{
+    type: ObjectId,
+    ref: 'Category'
+  }],
   rate: Number, //评分
   title: String, //标题
   summary: String, //简介
@@ -38,7 +42,7 @@ const movieSchema = new Schema({
 })
 
 //数据更新时间处理中间件
-movieSchema.pre('save', next => {
+movieSchema.pre('save', function (next) {
   //若为新数据
   if (this.isNew) { 
     this.meta.createdAt = this.meta.updatedAt = Date.now()
