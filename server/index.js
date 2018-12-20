@@ -3,7 +3,21 @@ const mongoose = require("mongoose")
 const views = require('koa-views')
 const { resolve } = require('path')
 const { connect, initSchemas } = require('./database/init')
+const router = require('./routes/movie')
+const R = require('ramda')
+const MIDDLEWARES = ['router']
 
+const useMiddlewares = (app) => {
+  R.map(
+    R.compose(
+      R.forEachObjIndexed(
+        initWith => initWith(app)
+        ),
+        require,
+        name => resolve(__dirname, `./middlewares/${name}`)
+    )
+  )(MIDDLEWARES)
+}
 const app = new Koa()
 
 ;(async () => {
@@ -12,17 +26,13 @@ const app = new Koa()
   initSchemas()
 
   //require('./tasks/movie')
-  require('./tasks/api')
+  // require('./tasks/api')
+
+
+  // await useMiddlewares(app)
+
+  app.listen(4455)
 })()
 
-app.use(views(resolve(__dirname,'./views'),{
-  extension: 'pug'
-}))
-app.use(async (ctx, next) => {
-  await ctx.render('index',{
-    you: 'Reaper',
-    me: 'ReaperLee'
-  })
- })
 
- app.listen(4455)
+
