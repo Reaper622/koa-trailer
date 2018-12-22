@@ -9,3 +9,6 @@ build
 
 # config 
 server/config
+
+#product
+dist
