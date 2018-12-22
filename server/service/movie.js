@@ -13,7 +13,7 @@ export const getAllMovies = async (type, year) => {
     query.year = year
   }
 
-  const movies = await movies.find(query)
+  const movies = await Movie.find(query)
 
   return movies
 }
